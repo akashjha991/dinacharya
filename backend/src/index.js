@@ -17,6 +17,11 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/entries", entryRoutes);
 
+app.get("/", (req, res) => {
+  res.send("✅ Daybook Backend is running! Use /api/... routes.");
+});
+
+
 connectDB()
   .then(() => {
     console.log("Database connected successfully!");
