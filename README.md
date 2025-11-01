@@ -1,5 +1,7 @@
-🌿 Dinacharya
 
+🌿 Dinacharya
+live:
+dinacharya-three.vercel.app
 Dinacharya is a secure and user-friendly personal journaling app built with the MERN stack (MongoDB, Express, React, and Node.js).
 It allows users to log in, write, view, and manage their daily journal entries while maintaining privacy, simplicity, and a distraction-free experience.
 
