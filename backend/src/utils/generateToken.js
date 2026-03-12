@@ -1,13 +1,12 @@
 const jwt = require("jsonwebtoken");
+const getCookieOptions = require("./cookieOptions");
 
 const generateToken = (_id, res) => {
   const token = jwt.sign({ _id }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
   res.cookie("token", token, {
+    ...getCookieOptions(),
     expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-    httpOnly: true,
-    secure: true,
-    sameSite: "None",
   });
 };
 
