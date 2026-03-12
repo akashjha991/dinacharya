@@ -91,10 +91,27 @@ Create a .env file inside backend:
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/dinacharya
 JWT_SECRET=yourSecretKey
-FRONTEND_URL=http://localhost:5173
+FRONTEND_URL=http://localhost:5173,https://your-app.vercel.app
+NODE_ENV=production
 
 
 Run the backend server:
+
+
+### ✅ Render + Vercel connection checklist
+
+If frontend is on Vercel and backend is on Render, make sure these are set exactly:
+
+- **Render (backend) environment variables**
+  - `FRONTEND_URL=https://your-vercel-domain.vercel.app` (for multiple domains, comma-separated)
+  - `NODE_ENV=production`
+  - `MONGO_URI`, `JWT_SECRET`, `PORT`
+- **Vercel (frontend) environment variables**
+  - `VITE_BACKEND_URL=https://your-render-service.onrender.com`
+- Requests must use `credentials: "include"` (already configured in this project).
+- Backend CORS must allow the frontend origin and `credentials: true` (configured in this project).
+- After changing env vars, **redeploy both services**.
+
 
 npm run dev   # for development
 npm start     # for production
